@@ -20,9 +20,14 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Header onSearch={this.props.Set}/>
+        <Header onSearch={this.props.onGetListings}/>
         <div className='list-of-listings'>
-        
+        {this.props.listings.map((item,index) => {
+          return <Listing key={index} 
+                    imgSrc={item.img_url}
+                    title={item.title}
+                    price={item.price_formatted}/>
+        })}
         </div>
       </div>
     );
@@ -31,7 +36,7 @@ class App extends Component {
 
 export default connect(
   state => ({
-    listings: state.listings,
+    listings: state.listings.listings,
   }),
   dispatch => ({
     onGetListings: () => {
@@ -51,9 +56,3 @@ export default connect(
   })
 )(App)
 
-/*{this.props.listings.map((item,index) => {
-          return <Listing key={index} 
-                    imgSrc={item.img_url}
-                    title={item.title}
-                    price={item.price_formatted}/>
-        })}*/
