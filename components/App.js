@@ -10,7 +10,7 @@ import { Header } from './Header'
 import { Listing } from './Listing'
 
 /////ACTIONS IMPORT
-import getListings from '../store/actions/getListings'
+import { getListings } from '../store/actions/getListings'
 
 class App extends Component {
   constructor() {
@@ -22,12 +22,7 @@ class App extends Component {
       <div className='app'>
         <Header onSearch={this.props.onGetListings}/>
         <div className='list-of-listings'>
-        {this.props.listings.map((item,index) => {
-          return <Listing key={index} 
-                    imgSrc={item.img_url}
-                    title={item.title}
-                    price={item.price_formatted}/>
-        })}
+        
         </div>
       </div>
     );
@@ -40,7 +35,14 @@ export default connect(
   }),
   dispatch => ({
     onGetListings: () => {
-      dispatch({type: 'GET_LISTINGS'});
+     
     },
   })
 )(App)
+
+/*{this.props.listings.map((item,index) => {
+          return <Listing key={index} 
+                    imgSrc={item.img_url}
+                    title={item.title}
+                    price={item.price_formatted}/>
+        })}*/
