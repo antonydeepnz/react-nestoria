@@ -1,0 +1,15 @@
+.listing-item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+
+  background-color: rgba(164, 184, 184, 0.493);
+}
+
+h4 {
+
+}
+
+p {
+
+}

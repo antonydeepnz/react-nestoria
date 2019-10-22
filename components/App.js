@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import '../style.css'
+import axios from 'axios' 
+
+/////STYLES IMPORT
+import '../styles/App.css'
+
+/////COMPONENTS IMPORT
+import { Header } from './Header'
+import { Listing } from './Listing'
+
+/////ACTIONS IMPORT
+import getListings from '../store/actions/getListings'
 
 class App extends Component {
   constructor() {
@@ -9,8 +19,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      
+      <div className='app'>
+        <Header onSearch={this.props.onGetListings}/>
+        <div className='list-of-listings'>
+        {this.props.listings.map((item,index) => {
+          return <Listing key={index} 
+                    imgSrc={item.img_url}
+                    title={item.title}
+                    price={item.price_formatted}/>
+        })}
+        </div>
       </div>
     );
   }
@@ -18,11 +36,11 @@ class App extends Component {
 
 export default connect(
   state => ({
-
+    listings: state.listings,
   }),
   dispatch => ({
     onGetListings: () => {
-      dispatch({type: 'GET_LISTINGS'})
-    }
+      dispatch({type: 'GET_LISTINGS'});
+    },
   })
 )(App)

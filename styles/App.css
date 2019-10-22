@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  padding: 10px;
+  background-color: rgba(179, 187, 187, 0.356);
+}
