@@ -10,7 +10,7 @@ import { Header } from './Header'
 import { Listing } from './Listing'
 
 /////ACTIONS IMPORT
-import { getListings } from '../store/actions/getListings'
+import { getListings } from '../store/actions/listingsActions'
 
 class App extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Header onSearch={this.props.onGetListings}/>
+        <Header onSearch={this.props.Set}/>
         <div className='list-of-listings'>
         
         </div>
@@ -35,8 +35,19 @@ export default connect(
   }),
   dispatch => ({
     onGetListings: () => {
-     
+      dispatch(getListings());
     },
+    Set : () => {
+      const a = () => {
+        return dispatch => {
+          setTimeout(()=> {
+            console.log('dsfdsfsfdf');
+            dispatch({type: 'SET', payload: []})
+          }, 2000)
+        }
+      }
+      dispatch(a());
+    }
   })
 )(App)
 
