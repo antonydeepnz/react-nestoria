@@ -6,3 +6,10 @@
   padding: 10px;
   background-color: rgba(179, 187, 187, 0.356);
 }
+
+.list-of-listings {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  align-items: stretch;
+}

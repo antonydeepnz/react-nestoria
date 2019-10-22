@@ -42,16 +42,8 @@ export default connect(
     onGetListings: () => {
       dispatch(getListings());
     },
-    Set : () => {
-      const a = () => {
-        return dispatch => {
-          setTimeout(()=> {
-            console.log('dsfdsfsfdf');
-            dispatch({type: 'SET', payload: []})
-          }, 2000)
-        }
-      }
-      dispatch(a());
+    onShowMore : () => {
+      
     }
   })
 )(App)

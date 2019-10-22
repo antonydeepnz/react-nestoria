@@ -17,9 +17,6 @@ export function listings(state = initialState(), action){
     case "GET_LISTINGS_REJECTED": {
       return {...state, errorMessage: action.payload, loading: action.loading};
     }
-    case "SET": {
-      console.log('44t43t4');
-    }
     default: 
       return state
   }

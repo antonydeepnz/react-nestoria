@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../styles/Listing'
 
 export const Listing = (props) => {
   return (

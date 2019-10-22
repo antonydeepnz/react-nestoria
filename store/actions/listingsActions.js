@@ -23,7 +23,6 @@ import { requestData, requestDataFulfilled, requestDataRejected } from '../reduc
         axios.get('https://cors-anywhere.herokuapp.com/https://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=buy&place_name=brighton')
         .then(res => {
           dispatch(requestDataFulfilled(res.data.response.listings));
-          console.log(res);
         })
         .catch(err => dispatch(requestDataRejected(err)));
     }
