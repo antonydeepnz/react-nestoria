@@ -17,10 +17,16 @@ class App extends Component {
     super();
   }
 
+  handleSearch = (town) => {
+    console.log(town);
+    this.props.onQuery(town);
+    this.props.onGetListings(town);
+  }
+
   render() {
     return (
       <div className='app'>
-        <Header onSearch={this.props.onGetListings}/>
+        <Header onSearch={this.handleSearch} />
         <div className='list-of-listings'>
         {this.props.listings.map((item,index) => {
           return <Listing key={index} 
@@ -37,13 +43,18 @@ class App extends Component {
 export default connect(
   state => ({
     listings: state.listings.listings,
+    town: state.query.town
   }),
   dispatch => ({
-    onGetListings: () => {
-      dispatch(getListings());
+    onGetListings: (town) => {
+      console.log(town);
+      dispatch(getListings(town));
     },
     onShowMore : () => {
       
+    },
+    onQuery: (town) => {
+      dispatch({type: "MAKE_QUERY_STRING", payload: town})
     }
   })
 )(App)

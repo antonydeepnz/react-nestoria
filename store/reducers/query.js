@@ -1,12 +1,21 @@
 const initialState = () => {
  return {
-    CORS: 'https://cors-anywhere.herokuapp.com/',
-    query: 'https://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=buy&place_name=london'}
+    town: 'london'
+    }
 }
 
-export default function query(state = initialState(),action){
+export default function query(state = initialState(), action){
   switch (action.type){
-
+    case "MAKE_QUERY_STRING": {
+      if (action.payload !== ''){
+        const newTown = action.payload.toLowerCase();
+        state.town = newTown;
+        return state;
+      } else {
+        state = initialState();
+        return state; 
+      } 
+    }
   }
   return state;
 }
