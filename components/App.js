@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   handleSearch = (town) => {
-    console.log(town);
     this.props.onQuery(town);
     this.props.onGetListings(town);
   }
@@ -43,11 +42,10 @@ class App extends Component {
 export default connect(
   state => ({
     listings: state.listings.listings,
-    town: state.query.town
+    town: state.listings.town
   }),
   dispatch => ({
     onGetListings: (town) => {
-      console.log(town);
       dispatch(getListings(town));
     },
     onShowMore : () => {

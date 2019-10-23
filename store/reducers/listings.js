@@ -2,7 +2,8 @@ const initialState = () => {
   return {
     listings: [],
     loading: true,
-    error: ''
+    error: '',
+    queryTown: 'london'
   }
 } 
 
@@ -16,7 +17,7 @@ export function listings(state = initialState(), action){
     }
     case "GET_LISTINGS_REJECTED": {
       return {...state, errorMessage: action.payload, loading: action.loading};
-    }
+    } 
     default: 
       return state
   }
