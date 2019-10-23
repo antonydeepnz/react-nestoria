@@ -8,6 +8,7 @@ import '../styles/App.css'
 /////COMPONENTS IMPORT
 import { Header } from './Header'
 import { Listing } from './Listing'
+import { Map } from './Map'
 
 /////ACTIONS IMPORT
 import { getListings } from '../store/actions/listingsActions'
@@ -34,6 +35,7 @@ class App extends Component {
                     price={item.price_formatted}/>
         })}
         </div>
+        <Map />
       </div>
     );
   }
